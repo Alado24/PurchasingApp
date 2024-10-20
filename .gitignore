@@ -1,3 +1,6 @@
+# Custom ignores
+*.iml
+
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
