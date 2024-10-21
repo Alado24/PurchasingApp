@@ -7,8 +7,8 @@ public class Customer {
     private String name;
     private String surname;
     private Email email;
-    private List<Address> deliveryAddresses; // Multiplicidad *
-    private List<Purchase> purchaseList; // Multiplicidad *
+    private final List<Address> deliveryAddresses; // Multiplicidad *
+    private final List<Purchase> purchaseList; // Multiplicidad *
 
     public Customer(String name, String surname, Email email) {
         this.name = name;
@@ -46,6 +46,10 @@ public class Customer {
         deliveryAddresses.add(address);
     }
 
+    public void removeDeliveryAddress(Address address) {
+        deliveryAddresses.remove(address);
+    }
+
     public List<Address> getDeliveryAddresses() {
         return deliveryAddresses;
     }
@@ -54,8 +58,23 @@ public class Customer {
         purchaseList.add(purchase);
     }
 
+    public void removePurchase(Purchase purchase) {
+        purchaseList.remove(purchase);
+    }
+
     public List<Purchase> getPurchasesList() {
         return purchaseList;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Customer anotherCustomer = (Customer) obj;
+        return (name.equals(anotherCustomer.name)) && (surname.equals(anotherCustomer.surname) && getEmail().equals(anotherCustomer.getEmail()));
+    }
 }
