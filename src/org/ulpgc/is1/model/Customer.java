@@ -44,7 +44,7 @@ public class Customer {
 
     public void addDeliveryAddress(String street, int number, int postalCode, String city) {
         Address address = new Address(street, number, postalCode, city);
-        if (!deliveryAddress.contains(address)) {
+        if (!this.deliveryAddress.contains(address)) {
             deliveryAddress.add(address);
         }
     }
@@ -65,7 +65,7 @@ public class Customer {
         purchaseList.remove(purchase);
     }
 
-    public List<Purchase> getPurchasesList() {
+    public List<Purchase> getPurchaseList() {
         return purchaseList;
     }
 
