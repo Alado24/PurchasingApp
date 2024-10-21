@@ -7,8 +7,8 @@ public class Payment {
     private int amount;
     private String card;
 
-    public Payment(String date, int amount, String card) {
-        this.date = LocalDate.parse(date);
+    public Payment(int amount, String card) {
+        this.date = LocalDate.now();
         this.amount = amount;
         this.card = card;
     }
