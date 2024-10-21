@@ -36,4 +36,16 @@ public class Email {
     public String toString() {
         return getAccount();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Email anotherEmail = (Email) obj;
+        return account.equals(anotherEmail.account);
+    }
 }
