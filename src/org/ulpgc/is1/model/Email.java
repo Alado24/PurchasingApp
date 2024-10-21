@@ -1,7 +1,7 @@
 package org.ulpgc.is1.model;
 
 public class Email {
-    private final String account;
+    private String account;
 
     public Email(String account) {
         this.account = account;
@@ -11,8 +11,14 @@ public class Email {
         return account;
     }
 
-    public boolean isValid() {
-        return account.contains("@");
+    public void setAccount(String account) {
+        this.account = account;
     }
 
+    public boolean isValid() {
+        if (!account.contains("@")) {
+            return false;
+        }
+        return account.contains(".");
+    }
 }
