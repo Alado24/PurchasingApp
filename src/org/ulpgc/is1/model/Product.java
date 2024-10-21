@@ -17,6 +17,14 @@ public class Product {
         this.discount = new Discount(dateFrom, dateTo, percentage);
     }
 
+    public Product(int id, String name, String description, int price, ProductCategory category) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.category = category;
+    }
+
     public int getId() {
         return id;
     }
