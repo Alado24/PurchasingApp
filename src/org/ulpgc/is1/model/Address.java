@@ -46,6 +46,11 @@ public class Address {
     }
 
     @Override
+    public String toString() {
+        return "Calle " + street + " número " + number + " en " + city + " (CP: " + postalCode + ")";
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
