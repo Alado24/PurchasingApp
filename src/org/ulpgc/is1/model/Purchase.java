@@ -1,20 +1,31 @@
 package org.ulpgc.is1.model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Purchase {
     private static int NEXT_ID = 0;
     private final int id;
-    private final LocalDate date;
-    private final Customer customer;
-    private final List<Product> products = new ArrayList<>(); // Multiplicidad 1..* para productos
+    private LocalDate date;
+    private Customer customer;
+    private Product product;
+    private Payment payment;
+    private Address deliveryAddress;
 
-    public Purchase(Customer customer) {
+    public Purchase(Customer customer, Product product, Address deliveryAddress) {
         this.id = NEXT_ID++;
         this.date = LocalDate.now();
         this.customer = customer;
+        this.product = product;
+        this.deliveryAddress = deliveryAddress;
+    }
+
+    public int price() {
+        if (this.product.getDiscount() == null) {
+            return this.product.getPrice();
+        }
+        else {
+            return (this.product.getPrice() - this.product.getPrice() * (this.product.getDiscount().getPercentage() / 100));
+        }
     }
 
     public int getId() {
@@ -25,15 +36,31 @@ public class Purchase {
         return date;
     }
 
-    public void addProduct(Product product) {
-        products.add(product);
-    }
-
-    public List<Product> getProducts() {
-        return products;
+    public void setDate(String date) {
+        this.date = LocalDate.parse(date);
     }
 
     public Customer getCustomer() {
         return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Address getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(Address deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
     }
 }
