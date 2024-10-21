@@ -23,6 +23,7 @@ public class Product {
         this.description = description;
         this.price = price;
         this.category = category;
+        this.discount = null;
     }
 
     public int getId() {
