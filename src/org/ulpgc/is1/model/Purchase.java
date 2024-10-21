@@ -72,4 +72,16 @@ public class Purchase {
     public void setPayment(Payment payment) {
         this.payment = payment;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Purchase otherPurchase = (Purchase) obj;
+        return id == otherPurchase.id;
+    }
 }

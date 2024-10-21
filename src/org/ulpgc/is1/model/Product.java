@@ -69,4 +69,16 @@ public class Product {
     public void setDiscount(String dateFrom, String dateTo, int percentage) {
         this.discount = new Discount(dateFrom, dateTo, percentage);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Product otherProduct = (Product) obj;
+        return id == otherProduct.id;
+    }
 }
