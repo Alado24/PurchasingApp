@@ -11,12 +11,13 @@ public class Purchase {
     private Payment payment;
     private Address deliveryAddress;
 
-    public Purchase(Customer customer, Product product, Address deliveryAddress) {
+    public Purchase(Customer customer, Product product, Address deliveryAddress, String card) {
         this.id = NEXT_ID++;
         this.date = LocalDate.now();
         this.customer = customer;
         this.product = product;
         this.deliveryAddress = deliveryAddress;
+        this.payment = new Payment(price(), card);
     }
 
     public int price() {
@@ -62,5 +63,13 @@ public class Purchase {
 
     public void setDeliveryAddress(Address deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 }
