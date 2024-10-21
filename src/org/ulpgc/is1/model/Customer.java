@@ -7,14 +7,14 @@ public class Customer {
     private String name;
     private String surname;
     private Email email;
-    private final List<Address> deliveryAddresses; // Multiplicidad *
+    private final List<Address> deliveryAddress; // Multiplicidad *
     private final List<Purchase> purchaseList; // Multiplicidad *
 
     public Customer(String name, String surname, Email email) {
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.deliveryAddresses = new ArrayList<>();
+        this.deliveryAddress = new ArrayList<>();
         this.purchaseList = new ArrayList<>();
     }
 
@@ -42,16 +42,16 @@ public class Customer {
         this.email = email;
     }
 
-    public void addDeliveryAddress(Address address) {
-        deliveryAddresses.add(address);
+    public void addDeliveryAddress(String street, int number, int postalCode, String city) {
+        deliveryAddress.add(new Address(street, number, postalCode, city));
     }
 
     public void removeDeliveryAddress(Address address) {
-        deliveryAddresses.remove(address);
+        deliveryAddress.remove(address);
     }
 
-    public List<Address> getDeliveryAddresses() {
-        return deliveryAddresses;
+    public List<Address> getDeliveryAddress() {
+        return deliveryAddress;
     }
 
     public void addPurchase(Purchase purchase) {
