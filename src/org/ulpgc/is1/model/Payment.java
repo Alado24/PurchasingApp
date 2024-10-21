@@ -3,12 +3,12 @@ package org.ulpgc.is1.model;
 import java.time.LocalDate;
 
 public class Payment {
-    private final LocalDate date;
-    private final int amount;
-    private final String card;
+    private LocalDate date;
+    private int amount;
+    private String card;
 
-    public Payment(LocalDate date, int amount, String card) {
-        this.date = date;
+    public Payment(String date, int amount, String card) {
+        this.date = LocalDate.parse(date);
         this.amount = amount;
         this.card = card;
     }
@@ -18,11 +18,23 @@ public class Payment {
         return date;
     }
 
+    public void setDate(String date) {
+        this.date = LocalDate.parse(date);
+    }
+
     public int getAmount() {
         return amount;
     }
 
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     public String getCard() {
         return card;
+    }
+
+    public void setCard(String card) {
+        this.card = card;
     }
 }
