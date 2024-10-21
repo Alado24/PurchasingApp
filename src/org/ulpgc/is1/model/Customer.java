@@ -4,28 +4,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-    private final String name;
-    private final String surname;
-    private final Email email; // Cambiado de "account" a "email"
-    private final List<Address> deliveryAddresses = new ArrayList<>(); // Multiplicidad 1..*
-    private final List<Purchase> purchases = new ArrayList<>(); // Multiplicidad 1..*
+    private String name;
+    private String surname;
+    private Email email;
+    private List<Address> deliveryAddresses; // Multiplicidad *
+    private List<Purchase> purchaseList; // Multiplicidad *
 
-    public Customer(String name, String surname, Email email) { // Cambiado de "account" a "email"
+    public Customer(String name, String surname, Email email) {
         this.name = name;
         this.surname = surname;
         this.email = email;
+        this.deliveryAddresses = new ArrayList<>();
+        this.purchaseList = new ArrayList<>();
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getSurname() {
         return surname;
     }
 
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
     public Email getEmail() { // Cambiado de "getAccount" a "getEmail"
         return email;
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
     }
 
     public void addDeliveryAddress(Address address) {
@@ -37,11 +51,11 @@ public class Customer {
     }
 
     public void addPurchase(Purchase purchase) {
-        purchases.add(purchase);
+        purchaseList.add(purchase);
     }
 
-    public List<Purchase> getPurchases() {
-        return purchases;
+    public List<Purchase> getPurchasesList() {
+        return purchaseList;
     }
 
 }
