@@ -44,4 +44,16 @@ public class Address {
     public void setCity(String city) {
         this.city = city;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Address otherAddress = (Address) obj;
+        return (number == otherAddress.number && street.equals(otherAddress.street) && postalCode == otherAddress.postalCode && city.equals(otherAddress.city));
+    }
 }
