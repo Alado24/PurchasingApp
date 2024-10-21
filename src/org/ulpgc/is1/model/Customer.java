@@ -43,7 +43,10 @@ public class Customer {
     }
 
     public void addDeliveryAddress(String street, int number, int postalCode, String city) {
-        deliveryAddress.add(new Address(street, number, postalCode, city));
+        Address address = new Address(street, number, postalCode, city);
+        if (!deliveryAddress.contains(address)) {
+            deliveryAddress.add(address);
+        }
     }
 
     public void removeDeliveryAddress(Address address) {
