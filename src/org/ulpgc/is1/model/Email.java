@@ -4,7 +4,7 @@ public class Email {
     private String account;
 
     public Email(String account) {
-        if (isValid()) {
+        if (isValid(account)) {
             this.account = account;
         }
         else {
@@ -17,7 +17,7 @@ public class Email {
     }
 
     public void setAccount(String account) {
-        if (isValid()) {
+        if (isValid(account)) {
             this.account = account;
         }
         else {
@@ -25,7 +25,7 @@ public class Email {
         }
     }
 
-    public boolean isValid() {
+    public boolean isValid(String account) {
         if (!account.contains("@")) {
             return false;
         }
