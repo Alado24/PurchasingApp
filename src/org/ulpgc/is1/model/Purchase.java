@@ -21,7 +21,11 @@ public class Purchase {
     }
 
     public int price() {
+        LocalDate now = LocalDate.now();
         if (this.product.getDiscount() == null) {
+            return this.product.getPrice();
+        }
+        else if (now.isAfter(this.product.getDiscount().getTo()) || now.isBefore(this.product.getDiscount().getFrom())) {
             return this.product.getPrice();
         }
         else {
